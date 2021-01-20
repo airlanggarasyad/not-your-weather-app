@@ -1,25 +1,67 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import './App.css';
+import SearchBar from './Components/SearchBar';
+import Weather from './Components/Weather';
+
+const API = {
+  key: "8ba6fc77fe419748f16ab32738f7e4c9",
+  base: "http://api.openweathermap.org/data/2.5/"
+}
+
+class App extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      city: undefined,
+      weather: undefined,
+      currTemp: undefined,
+      tempFeel: undefined,
+      tempMax: undefined,
+      tempMin: undefined
+    };
+
+    this.getWeather();
+  }
+
+  getWeather = async() => {
+
+    const apiCall = await fetch(
+      `${API.base}weather?q=shinjuku&APPID=${API.key}` 
+      );
+
+    const response = await apiCall.json();
+    
+    try{
+      this.setState({
+      city: `${response.name}, ${response.sys.country}`,
+      weather: response.weather[0].main,
+      currTemp: Math.floor(response.main.temp -273.15),
+      tempFeel: Math.floor(response.main.feels_like -273.15),
+      tempMax: Math.floor(response.main.temp_max -273.15),
+      tempMin: Math.floor(response.main.temp_min -273.15)
+      })
+    }
+    catch {
+      console.alert("Check your input")
+    }
+  }
+
+  render() {
+    return (
+      <div>
+        <SearchBar loadweather={this.getWeather}/>
+        <Weather 
+          city = {this.state.city}
+          weather = {this.state.weather}
+          currTemp = {this.state.currTemp}
+          tempFeel = {this.state.tempFeel}
+          tempMax = {this.state.tempMax}
+          tempMin = {this.state.tempMin}
+        />
+      </div>
+    );
+  }
 }
 
 export default App;

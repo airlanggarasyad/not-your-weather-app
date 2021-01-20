@@ -1,0 +1,38 @@
+.weather-main {
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background-color: rgba(0, 0, 0, 0.3);
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  padding: 20px;
+  border-radius: 20px;
+}
+
+.weather-main .location-box {
+  font-size: 15px;
+}
+
+.weather-main .location-box .date {
+  font-size: 25px;
+}
+
+.weather-main .weather-box {
+  text-align: center;
+}
+
+.weather-main .weather-box .temp {
+  text-align: center;
+  font-size: 100px;
+}
+
+.weather-main .weather-box .feels-like {
+  font-size: 19px;
+}
+
+.weather-main .weather-box .hi-lo {
+  margin-top: 10px;
+  text-align: left;
+}
+/*# sourceMappingURL=weather.css.map */
