@@ -2,16 +2,6 @@ import React, {Component} from 'react';
 import '../Styles/search.css';
 
 class SearchBar extends Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            barInput: ''
-        };
-    };
-
-
-
     render() {
         return(
             <form onSubmit={this.props.loc}>
@@ -20,7 +10,7 @@ class SearchBar extends Component {
                         type="text"
                         name="city"
                         className="search-bar" 
-                        placeholder="Search..."
+                        placeholder="Fill in a location..."
                     />
                 </div>
             </form>

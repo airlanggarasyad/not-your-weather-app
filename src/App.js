@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import Particles from 'react-particles-js';
 import SearchBar from './Components/SearchBar';
 import Weather from './Components/Weather';
 
@@ -39,19 +40,20 @@ class App extends React.Component {
       tempFeel: Math.floor(response.main.feels_like -273.15),
       tempMax: Math.floor(response.main.temp_max -273.15),
       tempMin: Math.floor(response.main.temp_min -273.15)
-      })
+      });
+      
     }
     catch {
-      alert("Check your input")
+     
     }
   }
 
   render() {
     return (
       <div>
-        {this.state.usrInput}
         <SearchBar
           loc = {this.getWeather}
+          city = {this.state.city}
         />
         <Weather 
           city = {this.state.city}
@@ -61,6 +63,19 @@ class App extends React.Component {
           tempMax = {this.state.tempMax}
           tempMin = {this.state.tempMin}
         />
+        <Particles 
+          params={{ 
+            particles: { 
+              number: { 
+                value: 200, 
+                density: { 
+                  enable: true, 
+                  value_area: 1000, 
+                } 
+              }, 
+            }, 
+          }} 
+        /> 
       </div>
     );
   }
