@@ -13,6 +13,7 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
+      usrInput: undefined,
       city: undefined,
       weather: undefined,
       currTemp: undefined,
@@ -24,10 +25,12 @@ class App extends React.Component {
     this.getWeather();
   }
 
+  // Get input from search bar
+
   getWeather = async() => {
 
     const apiCall = await fetch(
-      `${API.base}weather?q=shinjuku&APPID=${API.key}` 
+      `${API.base}weather?q=new+york&APPID=${API.key}` 
       );
 
     const response = await apiCall.json();
@@ -43,14 +46,14 @@ class App extends React.Component {
       })
     }
     catch {
-      console.alert("Check your input")
+      alert("Check your input")
     }
   }
 
   render() {
     return (
       <div>
-        <SearchBar loadweather={this.getWeather}/>
+        <SearchBar />
         <Weather 
           city = {this.state.city}
           weather = {this.state.weather}
