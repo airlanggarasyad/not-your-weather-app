@@ -6,30 +6,19 @@ class SearchBar extends Component {
         super(props);
 
         this.state = {
-            usrInput: ''
+            barInput: ''
         };
-
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
     };
-    
-    handleChange = (e) => {
-        this.setState({usrInput: e.target.value});
-    }
 
-    handleSubmit = (e) => {
-        console.log(this.state.usrInput);
-        e.preventDefault();
-    }
+
 
     render() {
         return(
-            <form onSubmit={this.handleSubmit}>
+            <form onSubmit={this.props.loc}>
                 <div className="search-box">
                     <input 
                         type="text"
-                        value={this.state.usrInput}
-                        onChange={this.handleChange}
+                        name="city"
                         className="search-bar" 
                         placeholder="Search..."
                     />
