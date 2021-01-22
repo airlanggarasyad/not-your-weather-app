@@ -1,6 +1,7 @@
 import React from 'react';
 import Particles from "react-particles-js";
 
+// eslint-disable-next-line
 export default () => (
     <div
         style={{
