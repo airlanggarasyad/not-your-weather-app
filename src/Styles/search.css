@@ -1,3 +1,7 @@
+form {
+  background-color: transparent;
+}
+
 .search-box {
   width: 100%;
   display: -webkit-box;

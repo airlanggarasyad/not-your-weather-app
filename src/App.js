@@ -1,8 +1,9 @@
 import React from 'react';
 import './App.css';
-import Particles from 'react-particles-js';
 import SearchBar from './Components/SearchBar';
 import Weather from './Components/Weather';
+import Particles from './Components/Particles';
+import TitleComponent from './Components/Title';
 
 const API = {
   key: "8ba6fc77fe419748f16ab32738f7e4c9",
@@ -13,12 +14,12 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      city: undefined,
-      weather: undefined,
-      currTemp: undefined,
-      tempFeel: undefined,
-      tempMax: undefined,
-      tempMin: undefined
+      city: "Wakanda",
+      weather: "Clouds",
+      currTemp: 24,
+      tempFeel: 25,
+      tempMax: 25,
+      tempMin: 22 
     };
   }
 
@@ -51,6 +52,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
+        <TitleComponent title = {this.state.city}/>
         <SearchBar
           loc = {this.getWeather}
           city = {this.state.city}
@@ -63,19 +65,7 @@ class App extends React.Component {
           tempMax = {this.state.tempMax}
           tempMin = {this.state.tempMin}
         />
-        <Particles 
-          params={{ 
-            particles: { 
-              number: { 
-                value: 200, 
-                density: { 
-                  enable: true, 
-                  value_area: 1000, 
-                } 
-              }, 
-            }, 
-          }} 
-        /> 
+        <Particles />
       </div>
     );
   }
