@@ -4,6 +4,7 @@ import SearchBar from './Components/SearchBar';
 import Weather from './Components/Weather';
 import Particles from './Components/Particles';
 import TitleComponent from './Components/Title';
+import Footer from './Components/Footer';
 
 const API = {
   key: "8ba6fc77fe419748f16ab32738f7e4c9",
@@ -65,6 +66,7 @@ class App extends React.Component {
           tempMax = {this.state.tempMax}
           tempMin = {this.state.tempMin}
         />
+        <Footer />
         <Particles />
       </div>
     );

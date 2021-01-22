@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+
+.footer {
+    position: fixed;
+    bottom:15px;
+    left:1%;
+    margin-right: -90px;
+}
+
+.blink {
+    display: inline;
+    font-size: 20px;
+    animation: blink 0.9s ease infinite;
+}
+
+@keyframes blink {
+    50% {opacity: 0}
+    80% {opacity: 1;}
+}
+
+.text {
+    display: inline-block;
+    background-color: black;
+    padding: 5px;
+    padding-top: 0px;
+    color: white;
+    font-family: 'Roboto Mono';
+}
