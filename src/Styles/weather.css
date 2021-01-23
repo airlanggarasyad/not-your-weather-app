@@ -18,21 +18,59 @@
   font-size: 25px;
 }
 
-.weather-main .weather-box {
-  text-align: center;
-}
-
-.weather-main .weather-box .temp {
+.temp {
+  width: 200px;
   text-align: center;
   font-size: 100px;
 }
 
-.weather-main .weather-box .feels-like {
+.feels-like {
   font-size: 19px;
+  text-align: center;
 }
 
-.weather-main .weather-box .hi-lo {
-  margin-top: 10px;
+.hi-lo {
+  margin-top: 20px;
   text-align: left;
 }
+
+.temp-info {
+  display: flex;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+.icn {
+  height: 90px;
+  width: 200px;
+  text-align: center;
+  font-size: 120px;
+}
+
+.weather {
+  text-align: center;
+}
+
+.vertical-line {
+  margin-left: 10px;
+  padding-left: 10px;
+  border-left: 0.5px solid #fff;
+}
+
+.date {
+  font-size: 30px;
+}
+
+.hi-lo-m {
+  display: none;
+}
 /*# sourceMappingURL=weather.css.map */
+@media only screen and (max-width: 490px) {
+  .vertical-line, .icn, .hi-lo {
+    display: none;
+  }
+  .hi-lo-m {
+    display: block;
+    margin-top: 16px;
+  }
+}
